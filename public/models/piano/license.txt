@@ -1,0 +1,11 @@
+Model Information:
+* title:	Grand Piano Dc
+* source:	https://sketchfab.com/3d-models/grand-piano-dc-7fb16abf78b8428598837525379141bd
+* author:	David (https://sketchfab.com/davidluis)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Grand Piano Dc" (https://sketchfab.com/3d-models/grand-piano-dc-7fb16abf78b8428598837525379141bd) by David (https://sketchfab.com/davidluis) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

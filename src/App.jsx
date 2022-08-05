@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Suspense } from "react";
 import "./App.css";
 import { Canvas } from "@react-three/fiber";
@@ -8,6 +8,10 @@ import {
   CubeCamera,
   Environment,
   RoundedBox,
+  Billboard,
+  Text,
+  Float,
+  Text3D,
 } from "@react-three/drei";
 import { Ground } from "./Ground";
 import { Car } from "./Car";
@@ -20,17 +24,22 @@ import {
   ChromaticAberration,
 } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
+
 import { FloatingGrid } from "./FloatingGrid";
 import { ColorCube } from "./ColorCube";
-import { Cloud } from "@react-three/drei";
+import { Cloud, Stars } from "@react-three/drei";
 import { Roza } from "./Roza";
+import { Piano } from "./Piano";
+import { Physics, useSphere } from "@react-three/cannon";
+import { Clump, Pointer } from "./Clump";
 
-function CarShow() {
+function CarShow({ ready }) {
   useEffect(() => {
     window.process = {
       ...window.process,
     };
   }, []);
+
   return (
     <>
       <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
@@ -42,7 +51,7 @@ function CarShow() {
         color={[1, 0.25, 0.7]}
         intensity={1.5}
         angle={0.6}
-        penumbra={0.5}
+        penumbra={0.9}
         position={[5, 5, 0]}
         castShadow
         shadow-bias={-0.0001}
@@ -52,7 +61,7 @@ function CarShow() {
         intensity={2}
         angle={0.6}
         penumbra={0.5}
-        position={[-5, 5, 0]}
+        position={[-10, 5, 0]}
         castShadow
         shadow-bias={-0.0001}
       />
@@ -61,17 +70,48 @@ function CarShow() {
         {(texture) => (
           <>
             <Environment map={texture} />
-            {/* <Car /> */}
+            <Piano ready={ready} />
           </>
         )}
       </CubeCamera>
       <Ground />
+      {/* <Physics gravity={[0, 10, 0]} iterations={10}>
+        <Pointer />
+        <Clump />
+      </Physics> */}
       <Boxes />
+      <Billboard
+        position={[0, 7, 1]}
+        args={[44, 30]}
+        follow={true}
+        lockX={false}
+        lockY={false}
+        lockZ={false}
+      >
+        <Text fontSize={1}>I'm a billboard</Text>
+      </Billboard>
+      <Float
+        position={[3.5, 6, 0]}
+        rotation={[0, -0.35, -0.05]}
+        rotationIntensity={0.35}
+        floatIntensity={0.5}
+      >
+        <Text3D
+          font={"/decoIta.json"}
+          size={1}
+          height={0.065}
+          curveSegments={12}
+        >
+          PORTAL
+          <meshStandardMaterial color={[1, 0.15, 0.1]} emissive={[1, 0.1, 0]} />
+        </Text3D>
+      </Float>
+
       <EffectComposer>
         {/* <DepthOfField focusDistance={0.0035} focalLength={0.01} bokehScale={3} height={480} /> */}
         <Bloom
           blendFunction={BlendFunction.ADD}
-          intensity={1.3} // The bloom intensity.
+          intensity={0.5} // The bloom intensity.
           width={300} // render width
           height={300} // render height
           kernelSize={5} // blur kernel size
@@ -85,20 +125,38 @@ function CarShow() {
       </EffectComposer>
       <FloatingGrid />
       <Roza />
+      <Piano ready={ready} />
+
       <ColorCube position={[0, 1, 1]} />
       <ColorCube position={[0, 1, 6]} />
       <ColorCube position={[0, 1, 11]} />
-      {/* <Cloud position={[1, 4, 1]} speed={0.9} opacity={0.5} /> */}
+      <Cloud position={[1, 11, 3]} speed={2} opacity={0.5} />
+      <Stars
+        radius={100}
+        depth={50}
+        count={5000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={1}
+      />
       <OrbitControls />
     </>
   );
 }
 
-function App() {
+function App({ ready }) {
+  // const [ready, setReady] = useState(false);
+  // function Ready({ setReady }) {
+  //   useEffect(() => () => void setReady(true), []);
+  //   return null;
+  // }
+  //<Ready setReady={setReady} />
+
   return (
     <Suspense fallback={null}>
       <Canvas shadows>
-        <CarShow />
+        <CarShow ready={ready} />
       </Canvas>
     </Suspense>
   );
