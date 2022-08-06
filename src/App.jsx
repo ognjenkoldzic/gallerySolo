@@ -12,9 +12,9 @@ import {
   Text,
   Float,
   Text3D,
+  MeshWobbleMaterial,
 } from "@react-three/drei";
 import { Ground } from "./Ground";
-import { Car } from "./Car";
 import { Rings } from "./Rings";
 import { Boxes } from "./Boxes";
 import {
@@ -30,8 +30,6 @@ import { ColorCube } from "./ColorCube";
 import { Cloud, Stars } from "@react-three/drei";
 import { Roza } from "./Roza";
 import { Piano } from "./Piano";
-import { Physics, useSphere } from "@react-three/cannon";
-import { Clump, Pointer } from "./Clump";
 
 function CarShow({ ready }) {
   useEffect(() => {
@@ -80,7 +78,7 @@ function CarShow({ ready }) {
         <Clump />
       </Physics> */}
       <Boxes />
-      <Billboard
+      {/* <Billboard
         position={[0, 7, 1]}
         args={[44, 30]}
         follow={true}
@@ -89,26 +87,32 @@ function CarShow({ ready }) {
         lockZ={false}
       >
         <Text fontSize={1}>I'm a billboard</Text>
-      </Billboard>
+      </Billboard> */}
       <Float
-        position={[3.5, 6, 0]}
-        rotation={[0, -0.35, -0.05]}
-        rotationIntensity={0.35}
-        floatIntensity={0.5}
+        position={[0, 8, 7]}
+        rotation={[0, -4.75, 0]}
+        //rotationIntensity={0.35}
+        floatIntensity={0.2}
       >
         <Text3D
-          font={"/decoIta.json"}
+          font={"/kingQueen.json"}
           size={1}
-          height={0.065}
-          curveSegments={12}
+          height={0.08}
+          curveSegments={9}
         >
-          PORTAL
-          <meshStandardMaterial color={[1, 0.15, 0.1]} emissive={[1, 0.1, 0]} />
+          Heavenly Gallery
+          <MeshWobbleMaterial
+            accatch="material"
+            color={[1, 1, 0.4]}
+            speed={0.4}
+            factor={0.2}
+            emissive={[1, 1, 0.4]}
+          />
+          {/* <meshStandardMaterial color={[1, 0.15, 0.1]} emissive={[1, 0.1, 0]} /> */}
         </Text3D>
       </Float>
 
       <EffectComposer>
-        {/* <DepthOfField focusDistance={0.0035} focalLength={0.01} bokehScale={3} height={480} /> */}
         <Bloom
           blendFunction={BlendFunction.ADD}
           intensity={0.5} // The bloom intensity.
@@ -130,7 +134,7 @@ function CarShow({ ready }) {
       <ColorCube position={[0, 1, 1]} />
       <ColorCube position={[0, 1, 6]} />
       <ColorCube position={[0, 1, 11]} />
-      <Cloud position={[1, 11, 3]} speed={2} opacity={0.5} />
+      <Cloud position={[1, 9, 3]} speed={2} opacity={0.5} />
       <Stars
         radius={100}
         depth={50}

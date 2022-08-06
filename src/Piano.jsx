@@ -12,7 +12,7 @@ export function Piano({ ready }) {
 
   console.log(play);
 
-  function playAudio(play, volume = 1, loop = false) {
+  function playAudio(play, volume = 0.3, loop = false) {
     const audio = new Audio(bachAudio);
     if (play === true) {
       audio.currentTime = 0;

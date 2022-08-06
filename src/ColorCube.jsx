@@ -19,7 +19,6 @@ export function ColorCube({ position }) {
   //         0.01;
   //   });
 
-  const texture_1 = useLoader(TextureLoader, "texture/dice_1.jpeg");
   const BSPBild = useLoader(TextureLoader, "texture/BSPBild.jpg");
   //   const texture_2 = useLoader(TextureLoader, "texture/dice_2.jpeg");
   //   const texture_3 = useLoader(TextureLoader, "texture/dice_3.jpeg");
