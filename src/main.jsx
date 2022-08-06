@@ -6,8 +6,8 @@ import Intro from "./Intro.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Intro>
-      <App />
-    </Intro>
+    {/* <Intro> */}
+    <App />
+    {/* </Intro> */}
   </React.StrictMode>
 );
