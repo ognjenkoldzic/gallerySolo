@@ -3,7 +3,7 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Mesh } from "three";
 import { PositionalAudio } from "@react-three/drei";
-import bachAudio from "./assets/bach.mp3";
+import bachAudio from "../assets/bach.mp3";
 
 export function Piano({ ready }) {
   const gltf = useLoader(GLTFLoader, "models/piano/scene.gltf");

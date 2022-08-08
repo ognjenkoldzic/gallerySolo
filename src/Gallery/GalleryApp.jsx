@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Suspense } from "react";
-import "./App.css";
+import "./GalleryApp.css";
 import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
@@ -149,7 +149,7 @@ function CarShow({ ready }) {
   );
 }
 
-function App({ ready }) {
+function GalleryApp({ ready }) {
   // const [ready, setReady] = useState(false);
   // function Ready({ setReady }) {
   //   useEffect(() => () => void setReady(true), []);
@@ -166,4 +166,4 @@ function App({ ready }) {
   );
 }
 
-export default App;
+export default GalleryApp;
