@@ -158,11 +158,13 @@ function GalleryApp({ ready }) {
   //<Ready setReady={setReady} />
 
   return (
-    <Suspense fallback={null}>
-      <Canvas shadows>
-        <CarShow ready={ready} />
-      </Canvas>
-    </Suspense>
+    <div className="gallerBody">
+      <Suspense fallback={null}>
+        <Canvas shadows>
+          <CarShow ready={ready} />
+        </Canvas>
+      </Suspense>
+    </div>
   );
 }
 

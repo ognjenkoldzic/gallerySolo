@@ -37,7 +37,7 @@ function MapApp() {
   const [locationButton, setLocationButton] = useState(false);
   const mapRef = useRef();
 
-  // http://localhost:8001/api/pins
+  // http://localhost:8001/api/pins //https://young-fortress-38538.herokuapp.com/api/pins
   const config = {
     headers: {
       // "content-type": "multipart/form-data",
@@ -49,7 +49,7 @@ function MapApp() {
     const getPins = async () => {
       try {
         const allPins = await axios.get(
-          "https://young-fortress-38538.herokuapp.com/api/pins",
+          "http://localhost:8001/api/pins",
           config
         );
         setPins(allPins.data);
@@ -268,7 +268,7 @@ function MapApp() {
               setPosition(null);
             }}
           >
-            HALLO
+            LOCATE ME
           </button>
         </Control>
         <LocationMarker positions={positions} setPositions={setPositions} />
