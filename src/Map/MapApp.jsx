@@ -266,6 +266,7 @@ function MapApp() {
             onClick={() => {
               setLocationButton(true);
               setPosition(null);
+              setCurrentPlace(null);
             }}
           >
             LOCATE ME
