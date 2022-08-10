@@ -30,8 +30,23 @@ import { ColorCube } from "./ColorCube";
 import { Cloud, Stars } from "@react-three/drei";
 import { Roza } from "./Roza";
 import { Piano } from "./Piano";
+import { PushSpinner } from "react-spinners-kit";
+import Spinner from "./Spinner";
+import { useFrame, useLoader } from "@react-three/fiber";
+import { RepeatWrapping, TextureLoader } from "three";
 
 function CarShow({ ready }) {
+  const BSPBild1 = useLoader(TextureLoader, "texture/vermeer.jpg");
+  const BSPBild2 = useLoader(TextureLoader, "texture/thomas.png");
+  const BSPBild3 = useLoader(TextureLoader, "texture/watteau.jpg");
+
+  const paintings = [
+    { pic: BSPBild1, position: [0, 1.25, 1] },
+    { pic: BSPBild2, position: [0, 1.25, 6] },
+    { pic: BSPBild3, position: [0, 1.25, 11] },
+  ];
+  console.log(paintings);
+
   useEffect(() => {
     window.process = {
       ...window.process,
@@ -41,10 +56,8 @@ function CarShow({ ready }) {
   return (
     <>
       <OrbitControls target={[0, 0.35, 0]} maxPolarAngle={1.45} />
-      <PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
-
+      <PerspectiveCamera makeDefault fov={50} position={[30, 20, 5]} />
       <color args={[0, 0, 0]} attach="background" />
-
       <spotLight
         color={[1, 0.25, 0.7]}
         intensity={1.5}
@@ -111,7 +124,6 @@ function CarShow({ ready }) {
           {/* <meshStandardMaterial color={[1, 0.15, 0.1]} emissive={[1, 0.1, 0]} /> */}
         </Text3D>
       </Float>
-
       <EffectComposer>
         <Bloom
           blendFunction={BlendFunction.ADD}
@@ -130,10 +142,11 @@ function CarShow({ ready }) {
       <FloatingGrid />
       <Roza />
       <Piano ready={ready} />
-
-      <ColorCube position={[0, 1, 1]} />
-      <ColorCube position={[0, 1, 6]} />
-      <ColorCube position={[0, 1, 11]} />
+      {paintings.map((painting) => (
+        <ColorCube position={painting.position} map={painting.pic} />
+      ))}
+      {/* <ColorCube position={[0, 1.5, 6]} />
+      <ColorCube position={[0, 1.5, 11]} /> */}
       <Cloud position={[1, 9, 3]} speed={2} opacity={0.5} />
       <Stars
         radius={100}
@@ -156,10 +169,11 @@ function GalleryApp({ ready }) {
   //   return null;
   // }
   //<Ready setReady={setReady} />
+  //
 
   return (
     <div className="gallerBody">
-      <Suspense fallback={null}>
+      <Suspense fallback={<Spinner />}>
         <Canvas shadows>
           <CarShow ready={ready} />
         </Canvas>

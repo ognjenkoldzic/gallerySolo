@@ -20,3 +20,9 @@ h1 {
 img {
   margin: 0.2em;
 }
+
+.loading {
+  font-family: "DO Stylish Baroque", sans-serif;
+  display: flex;
+  justify-content: center;
+}

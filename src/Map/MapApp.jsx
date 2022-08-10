@@ -49,7 +49,7 @@ function MapApp() {
     const getPins = async () => {
       try {
         const allPins = await axios.get(
-          "http://localhost:8001/api/pins",
+          "https://young-fortress-38538.herokuapp.com/api/pins",
           config
         );
         setPins(allPins.data);
@@ -204,7 +204,7 @@ function MapApp() {
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             />
           </BaseLayer>
-          <LayersControl.Overlay name="Marker with popup">
+          {/* <LayersControl.Overlay name="Marker with popup">
             <LayerGroup>
               <BaseLayer name={"SateliteName"}>
                 <TileLayer
@@ -220,7 +220,7 @@ function MapApp() {
                 />
               </BaseLayer>
             </LayerGroup>
-          </LayersControl.Overlay>
+          </LayersControl.Overlay> */}
         </LayersControl>
         {pins &&
           pins.map((pin) => (
