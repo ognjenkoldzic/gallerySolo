@@ -6,6 +6,7 @@ import Intro from "./Intro.jsx";
 import MapApp from "./Map/MapApp";
 import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./fonts/Baroque.ttf";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

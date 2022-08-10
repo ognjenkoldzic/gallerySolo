@@ -1,11 +1,14 @@
-@import url("http://fonts.cdnfonts.com/css/do-stylish-baroque");
+/* @import url("http://fonts.cdnfonts.com/css/do-stylish-baroque"); */
+.font-face-gm {
+  font-family: "DO Stylish Baroque";
+}
 .appBody {
   margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   place-items: center;
-  min-width: 320px;
+  min-width: 100vh;
   min-height: 100vh;
   background-color: #242424;
   font-family: "DO Stylish Baroque", sans-serif;

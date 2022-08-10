@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="appBody">
+    <div className="appBody font-face-gm">
       <h1>Baroque Art</h1>
       <Link to="/gallery">
         <img src={GalleryFramed} alt="Galleriebild mit Rahmen" />

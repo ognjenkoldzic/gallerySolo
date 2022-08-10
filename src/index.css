@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Avenir, Helvetica, Arial, "DO Stylish Baroque", sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -13,6 +13,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+@font-face {
+  font-family: "DO Stylish Baroque";
+  src: local("DO Stylish Baroque"),
+    url("./fonts/Baroque.ttf") format("truetype");
+  font-weight: normal;
 }
 
 /* a {
