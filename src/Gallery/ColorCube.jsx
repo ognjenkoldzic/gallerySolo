@@ -4,7 +4,7 @@ import { RepeatWrapping, TextureLoader } from "three";
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 
-export function ColorCube({ position }) {
+export function ColorCube({ position, map }) {
   const [motion, setMotion] = useState(false);
 
   const mesh = useRef();
@@ -26,7 +26,7 @@ export function ColorCube({ position }) {
   //   const texture_5 = useLoader(TextureLoader, "texture/dice_5.jpeg");
   //   const texture_6 = useLoader(TextureLoader, "texture/dice_6.jpeg");
   const Move = () => {
-    useFrame((state, delta) => (mesh.current.rotation.z += 0.04));
+    useFrame((state, delta) => (mesh.current.rotation.z += 0.06));
   };
   //onDoubleClick={handleDoubleClick}
   return (
@@ -36,14 +36,14 @@ export function ColorCube({ position }) {
         position={position}
         onClick={() => setMotion((prevMotion) => !prevMotion)}
       >
-        <boxBufferGeometry attach="geometry" args={[2.5, 0.15, 2.5]} />
+        <boxBufferGeometry attach="geometry" args={[1.75, 0.15, 1.75]} />
 
         {/* <boxGeometry args={[1, 1, 1]} /> */}
 
         <meshBasicMaterial attach="material-0" color="white" />
         <meshBasicMaterial attach="material-1" color="white" />
-        <meshBasicMaterial attach="material-2" map={BSPBild} transparent />
-        <meshBasicMaterial attach="material-3" map={BSPBild} transparent />
+        <meshBasicMaterial attach="material-2" map={map} transparent />
+        <meshBasicMaterial attach="material-3" map={map} transparent />
         <meshBasicMaterial attach="material-4" color="white" />
         {/* <meshBasicMaterial attach="material-5" color="0xffffff" /> */}
         <meshBasicMaterial attach="material-5" color="white" />

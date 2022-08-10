@@ -3,17 +3,15 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Mesh } from "three";
 import { PositionalAudio } from "@react-three/drei";
-import bachAudio from "./assets/bach.mp3";
+import bachAudio from "../assets/bach.mp3";
 
 export function Piano({ ready }) {
   const gltf = useLoader(GLTFLoader, "models/piano/scene.gltf");
   const [motion, setMotion] = useState(true);
   const [play, setPlay] = useState(false);
-
-  console.log(play);
+  const [audio, setAudio] = useState(new Audio(bachAudio));
 
   function playAudio(play, volume = 0.3, loop = false) {
-    const audio = new Audio(bachAudio);
     if (play === true) {
       audio.currentTime = 0;
       audio.volume = volume;
@@ -21,7 +19,23 @@ export function Piano({ ready }) {
       audio.play();
     } else audio.pause();
   }
-  playAudio(play);
+
+  useEffect(() => {
+    playAudio(play);
+    console.log(play);
+  }, [play]);
+  // console.log(play);
+
+  // function playAudio(play, volume = 0.3, loop = false) {
+  //   const audio = new Audio(bachAudio);
+  //   if (play === true) {
+  //     audio.currentTime = 0;
+  //     audio.volume = volume;
+  //     audio.loop = loop;
+  //     audio.play();
+  //   } else audio.pause();
+  // }
+  // playAudio(play);
 
   useEffect(() => {
     gltf.scene.scale.set(0.0135, 0.0135, 0.0135);
