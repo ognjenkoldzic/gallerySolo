@@ -30,7 +30,6 @@ import { ColorCube } from "./ColorCube";
 import { Cloud, Stars } from "@react-three/drei";
 import { Roza } from "./Roza";
 import { Piano } from "./Piano";
-import { PushSpinner } from "react-spinners-kit";
 import Spinner from "./Spinner";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { RepeatWrapping, TextureLoader } from "three";
@@ -169,11 +168,11 @@ function GalleryApp({ ready }) {
   //   return null;
   // }
   //<Ready setReady={setReady} />
-  //
+  //<Spinner />
 
   return (
     <div className="gallerBody">
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={null}>
         <Canvas shadows>
           <CarShow ready={ready} />
         </Canvas>

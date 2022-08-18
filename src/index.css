@@ -14,12 +14,12 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-@font-face {
+/* @font-face {
   font-family: "DO Stylish Baroque";
   src: local("DO Stylish Baroque"),
     url("./fonts/Baroque.ttf") format("truetype");
   font-weight: normal;
-}
+} */
 
 /* a {
   font-weight: 500;
