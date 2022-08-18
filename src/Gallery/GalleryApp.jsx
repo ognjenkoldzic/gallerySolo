@@ -172,7 +172,7 @@ function GalleryApp({ ready }) {
 
   return (
     <div className="gallerBody">
-      <Suspense fallback={null}>
+      <Suspense fallback={<h1>Loading</h1>}>
         <Canvas shadows>
           <CarShow ready={ready} />
         </Canvas>
